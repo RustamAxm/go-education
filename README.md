@@ -1,5 +1,5 @@
 # go education
-first programm 
+## first programm 
 ```
 package main
 
@@ -27,3 +27,32 @@ main  main.go
 rustam@rustam-zenbook:~/go-education$ ./main 
 Hello, Go!
 ```
+## package
+
+```
+rustam@rustam-zenbook:~/go-education$ tree .
+.
+├── go.mod
+├── main
+├── main.go
+├── my_module
+│   └── my_module.go
+└── README.md
+
+2 directories, 5 files
+
+```
+imported func name start with UpperCase
+
+Create mod file
+```
+go mod init <project name >
+```
+example
+```
+rustam@rustam-zenbook:~/go-education$ cat go.mod 
+module go-education
+
+go 1.23.5
+```
+
