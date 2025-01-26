@@ -69,3 +69,21 @@ func main() {
     m.Module_func()
 }
 ```
+after build created runnable bin
+```
+rustam@rustam-zenbook:~/go-education$ go build 
+rustam@rustam-zenbook:~/go-education$ ls -la
+total 2112
+drwxrwxr-x  4 rustam rustam    4096 Jan 26 22:45 .
+drwxr-x--- 41 rustam rustam    4096 Jan 26 22:44 ..
+drwxrwxr-x  8 rustam rustam    4096 Jan 26 22:45 .git
+-rwxrwxr-x  1 rustam rustam 2130991 Jan 26 22:45 go-education
+-rw-rw-r--  1 rustam rustam      31 Jan 26 22:25 go.mod
+-rw-rw-r--  1 rustam rustam     158 Jan 26 22:37 main.go
+drwxrwxr-x  2 rustam rustam    4096 Jan 26 22:36 my_module
+-rw-rw-r--  1 rustam rustam    1237 Jan 26 22:43 README.md
+rustam@rustam-zenbook:~/go-education$ ./go-education 
+Hello, Go!
+in module
+
+```
