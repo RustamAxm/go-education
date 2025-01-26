@@ -55,4 +55,17 @@ module go-education
 
 go 1.23.5
 ```
+after create files in module correct import in main
+```
+package main
 
+
+import "fmt"
+import "go-education/my_module"
+
+func main() {
+    fmt.Println("Hello, Go!")
+    m := my_module.NewModule()
+    m.Module_func()
+}
+```
