@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net"
+	"fmt"
 )
 
 func main() {
@@ -16,4 +17,5 @@ func main() {
 	if err != nil {
 		log.Println(err)
 	}
+	fmt.Println("msg send done")
 }
