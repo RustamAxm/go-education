@@ -87,3 +87,90 @@ Hello, Go!
 in module
 
 ```
+
+## test demo
+### std tests
+```
+rustam@rustam-zenbook:~/go-education$ tree my_module/
+my_module/
+├── my_module.go
+└── my_module_test.go
+
+1 directory, 2 files
+rustam@rustam-zenbook:~/go-education$ cat my_module/my_module_test.go 
+
+package my_module
+
+import "testing"
+import "fmt"
+
+func TestSimple(t *testing.T) {
+	fmt.Println("in test")
+	m := NewModule()
+	if got := m.Module_func(); got != "in module" {
+		t.Errorf("error in module test = %q", got)
+	}
+}
+
+func TestSimpleErr(t *testing.T) {
+        fmt.Println("in test")
+        m := NewModule()
+        m.Module_func()
+        if got := m.Module_func(); got != "in module 2 " {
+                t.Errorf("error in module test = %q", got)
+        }
+}
+
+```
+run tests 
+```
+rustam@rustam-zenbook:~/go-education$ go test -v go-education/my_module
+=== RUN   TestSimple
+in test
+in module
+--- PASS: TestSimple (0.00s)
+=== RUN   TestSimpleErr
+in test
+in module
+in module
+    my_module_test.go:20: error in module test = "in module"
+--- FAIL: TestSimpleErr (0.00s)
+FAIL
+FAIL	go-education/my_module	0.005s
+FAIL
+
+```
+### gotestsum 
+install 
+```
+go install -v  gotest.tools/gotestsum
+```
+
+```
+rustam@rustam-zenbook:~/go-education$ gotestsum --junitfile unit-tests.xml
+∅  .
+∅  go_doc
+∅  gorutine
+✖  my_module (19ms)
+∅  net_http
+∅  proto_test
+∅  udp
+∅  udp/client
+∅  udp/server
+
+=== Failed
+=== FAIL: my_module TestSimpleErr (0.00s)
+in test
+in module
+in module
+    my_module_test.go:20: error in module test = "in module"
+
+DONE 2 tests, 1 failure in 2.715s
+rustam@rustam-zenbook:~/go-education$ cat unit-tests.xml 
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="2" failures="1" errors="0" time="2.806015">
+	<testsuite tests="0" failures="0" time="0.000000" name="go-education" timestamp="2025-02-26T20:58:23+03:00">
+
+```
+
+
