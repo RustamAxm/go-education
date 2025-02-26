@@ -1,3 +1,14 @@
+/*
+docs tets for module 
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!
+*/
+
+
+
 package my_module
 
 import "fmt"
